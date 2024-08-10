@@ -1,0 +1,26 @@
+apiVersion: external-secrets.io/v1beta1
+kind: ClusterSecretStore
+metadata:
+  name: {{ .Values.name }}
+  annotations:
+    {{- toYaml .Values.annotations | nindent 4 }}
+  labels:
+    {{- toYaml .Values.labels | nindent 4 }}
+spec:
+  provider:
+    infisical:
+      auth:
+        universalAuthCredentials:
+          clientId:
+            name: {{ .Values.secretName }}
+            key: {{ .Values.clientIdKey}}
+            namespace: {{ .Release.Namespace }}
+          clientSecret:
+            name: {{ .Values.secretName }}
+            key: {{ .Values.clientSecretKey }}
+            namespace: {{ .Release.Namespace }}
+      secretsScope:
+        projectSlug: {{ .Values.project }}
+        environmentSlug: {{ .Values.env }}
+        secretsPath: {{ .Values.path }}
+      hostAPI: {{ .Values.api }}

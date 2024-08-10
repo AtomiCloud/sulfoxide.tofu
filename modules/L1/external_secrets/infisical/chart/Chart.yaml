@@ -1,0 +1,9 @@
+apiVersion: v2
+name: aws-ssm-secret-store
+description: Secret Store for AWS SSM
+
+type: application
+
+version: 1.0.0
+
+appVersion: "0.1.0"

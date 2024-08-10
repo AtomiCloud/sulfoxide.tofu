@@ -1,0 +1,10 @@
+name: "infisical"
+labels: {}
+annotations: {}
+secretName: "secret-name"
+clientIdKey: client_id_key
+clientSecretKey: secret_key
+project: project_slug
+env: env
+path: "/"
+api: https://secrets.atomi.cloud

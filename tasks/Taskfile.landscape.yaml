@@ -1,0 +1,51 @@
+version: "3"
+
+tasks:
+  tf:
+    dir: "{{.DIR}}"
+    desc: "Use Tofu CLI"
+    interactive: true
+    cmds:
+      - "{{.TF}} {{.CLI_ARGS}}"
+
+  init:
+    dir: "{{.DIR}}"
+    desc: "Initialize landscape"
+    interactive: true
+    cmds:
+      - "{{.TF}} init {{.CLI_ARGS}}"
+
+  destroy:
+    dir: "{{.DIR}}"
+    desc: "Destroy landscape"
+    interactive: true
+    cmds:
+      - "{{.TF}} destroy {{.CLI_ARGS}}"
+
+  plan:
+    dir: "{{.DIR}}"
+    desc: "Plan landscape"
+    interactive: true
+    cmds:
+      - "{{.TF}} plan {{.CLI_ARGS}}"
+
+  apply:
+    dir: "{{.DIR}}"
+    desc: "Apply landscape"
+    interactive: true
+    cmds:
+      - "{{.TF}} apply {{.CLI_ARGS}}"
+
+  state:ls:
+    dir: "{{.DIR}}"
+    desc: "List states for landscape"
+    interactive: true
+    cmds:
+      - "{{.TF}} state list {{.CLI_ARGS}}"
+
+  state:rm:
+    dir: "{{.DIR}}"
+    desc: "Remove state from landscape"
+    interactive: true
+    cmds:
+      - "{{.TF}} state rm {{.CLI_ARGS}}"

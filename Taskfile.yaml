@@ -1,0 +1,54 @@
+version: "3"
+
+vars:
+  TF: tofu
+
+includes:
+  setup: tasks/Taskfile.setup.yaml
+
+  suicune:l0:opal:
+    taskfile: tasks/Taskfile.landscape.yaml
+    vars:
+      DIR: landscapes/suicune/L0/opal
+  suicune:l0:ruby:
+    taskfile: tasks/Taskfile.landscape.yaml
+    vars:
+      DIR: landscapes/suicune/L0/ruby
+
+  suicune:l1:opal-ruby:
+    taskfile: tasks/Taskfile.landscape.yaml
+    vars:
+      DIR: landscapes/suicune/L1/opal-ruby/generic
+  suicune:l1:opal:
+    taskfile: tasks/Taskfile.landscape.yaml
+    vars:
+      DIR: landscapes/suicune/L1/opal-ruby/opal
+  suicune:l1:ruby:
+    taskfile: tasks/Taskfile.landscape.yaml
+    vars:
+      DIR: landscapes/suicune/L1/opal-ruby/ruby
+
+
+  entei:l0:
+    taskfile: tasks/Taskfile.landscape.yaml
+    vars:
+      DIR: landscapes/entei/L0
+  entei:l1:
+    taskfile: tasks/Taskfile.landscape.yaml
+    vars:
+      DIR: landscapes/entei/L1
+
+  arceus:
+    taskfile: tasks/Taskfile.landscape.yaml
+    vars:
+      DIR: landscapes/arceus
+
+tasks:
+  kubectl:
+    desc: Generate kubeconfig
+    cmds:
+      - ./scripts/local/update-kubectl.sh
+  sync:
+    desc: Sync static and secrets
+    cmds:
+      - ./scripts/local/sync.sh

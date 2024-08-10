@@ -1,0 +1,31 @@
+version: "3"
+
+tasks:
+  entei:opal:
+    desc: Obtain Entei Opal Kubectl
+    env:
+      CLUSTER: opal
+      LANDSCAPE: entei
+    cmds:
+      - ./scripts/local/update-kubectl.sh
+  entei:ruby:
+    desc: Obtain Entei Ruby Kubectl
+    env:
+      CLUSTER: ruby
+      LANDSCAPE: entei
+    cmds:
+      - ./scripts/local/update-kubectl.sh
+  suicune:ruby:
+    desc: Obtain Suicune Ruby Kubectl
+    env:
+      CLUSTER: ruby
+      LANDSCAPE: suicune
+    cmds:
+      - ./scripts/local/update-kubectl.sh
+  suicune:opal:
+    desc: Obtain Suicune Opal Kubectl
+    env:
+      CLUSTER: opal
+      LANDSCAPE: suicune
+    cmds:
+      - ./scripts/local/update-kubectl.sh
