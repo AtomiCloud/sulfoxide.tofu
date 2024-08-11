@@ -18,6 +18,7 @@ with packages;
 
   main = [
     opentofu
+    terraform
   ];
 
   lint = [

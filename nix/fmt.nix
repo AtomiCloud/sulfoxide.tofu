@@ -15,7 +15,7 @@ let
         enable = true;
       };
       terraform = {
-        enable = true;
+        enable = false;
         package = pkgs.opentofu;
       };
     };

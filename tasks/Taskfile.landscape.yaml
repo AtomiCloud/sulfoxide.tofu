@@ -49,3 +49,10 @@ tasks:
     interactive: true
     cmds:
       - "{{.TF}} state rm {{.CLI_ARGS}}"
+
+  output:
+    dir: "{{.DIR}}"
+    desc: "Output landscape"
+    interactive: true
+    cmds:
+      - "{{.TF}} output {{.CLI_ARGS}}"

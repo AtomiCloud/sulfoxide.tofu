@@ -5,6 +5,7 @@ locals {
     upstash       = "ap-southeast-1"
     digital_ocean = "sgp1"
     cloudflare    = "APAC"
+    aws           = "ap-southeast-1"
   }
 
   cloudflare = {
@@ -16,28 +17,28 @@ locals {
 
   clusters = {
     digital_ocean = {
-      set  = "opal-ruby"
-      blue = "opal"
+      set   = "opal-ruby"
+      blue  = "opal"
       green = "ruby"
     }
     linode = {
-      set  = "onyx-jade"
-      blue = "onyx"
+      set   = "onyx-jade"
+      blue  = "onyx"
       green = "jade"
     }
     vultr = {
-      set  = "mica-talc"
-      blue = "mica"
+      set   = "mica-talc"
+      blue  = "mica"
       green = "talc"
     }
     aws = {
-      set  = "topaz-amber"
-      blue = "topaz"
+      set   = "topaz-amber"
+      blue  = "topaz"
       green = "amber"
     }
     gcp = {
-      set  = "agate-lapis"
-      blue = "agate"
+      set   = "agate-lapis"
+      blue  = "agate"
       green = "lapis"
     }
     azure = {
@@ -98,6 +99,11 @@ locals {
           name        = "Pod Autoscaler"
           slug        = "iron"
           description = "KEDA scaler for pods"
+        }
+        cluster_scaler = {
+          name        = "Cluster Scaler"
+          slug        = "krypton"
+          description = "Karpenter scaler for nodes"
         }
         cluster_issuer = {
           name        = "Cluster Issuer"

@@ -27,6 +27,16 @@ module "cluster" {
 # 03 Cluster Access #
 #####################
 
+locals {
+  config_obj = jsondecode(module.cluster.config)
+}
+
+provider "kubernetes" {
+  host                   = module.cluster.server
+  cluster_ca_certificate = base64decode(local.config_obj.tlsClientConfig.caData)
+  token                  = local.config_obj.bearerToken
+}
+
 module "static_config" {
   source = "../../../../modules/L0/cluster_secret"
 
@@ -35,7 +45,6 @@ module "static_config" {
 
   name           = module.cluster.name
   server         = module.cluster.server
-  config         = module.cluster.config
 }
 
 module "kubeconfig" {

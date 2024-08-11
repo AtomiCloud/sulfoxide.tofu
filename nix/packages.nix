@@ -1,4 +1,4 @@
-{ pkgs, atomi, pkgs-2405, pkgs-240810 }:
+{ pkgs, atomi, pkgs-2405, pkgs-230927, pkgs-240810 }:
 let
 
   all = {
@@ -8,6 +8,12 @@ let
         inherit
           sg
           pls;
+      }
+    );
+    pkgs230927 = (
+      with pkgs-230927;
+      {
+         inherit terraform;
       }
     );
     pkgs240810 = (
@@ -23,6 +29,8 @@ let
 
           # fmt
           treefmt
+          opentofu
+
 
           # dev
           git
@@ -30,7 +38,6 @@ let
 
           # main
           infisical
-          opentofu
 
           # lint
           gitlint
@@ -50,4 +57,5 @@ in
 with all;
 atomipkgs //
 pkgs240810 //
+pkgs230927 //
 pkgs2405
