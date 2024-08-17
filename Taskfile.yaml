@@ -28,7 +28,6 @@ includes:
     vars:
       DIR: landscapes/suicune/L1/opal-ruby/ruby
 
-
   entei:l0:topaz:
     taskfile: tasks/Taskfile.landscape.yaml
     vars:
@@ -50,6 +49,10 @@ includes:
 tasks:
   kubectl:
     desc: Generate kubeconfig
+    env:
+      SLUGS: "pichu pikachu raichu suicune entei"
+      PCLUSTERS: "entei"
+      VCLUSTERS: "pichu pikachu raichu"
     cmds:
       - ./scripts/local/update-kubectl.sh
   sync:

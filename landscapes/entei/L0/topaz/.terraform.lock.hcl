@@ -27,7 +27,7 @@ provider "registry.opentofu.org/digitalocean/digitalocean" {
 
 provider "registry.opentofu.org/hashicorp/aws" {
   version     = "5.62.0"
-  constraints = ">= 4.33.0, ~> 5.0, >= 5.46.0, >= 5.61.0"
+  constraints = ">= 4.0.0, >= 4.33.0, ~> 5.0, >= 5.46.0, >= 5.61.0"
   hashes = [
     "h1:osfvuI1zhXvYITS+pLYHD7qVmxS1LiGF4x1nb2meI4g=",
     "zh:2cb519ce7f3cbcb88b2e93dd3b3424ad85a347fc0e7429661945da5df8a20fda",

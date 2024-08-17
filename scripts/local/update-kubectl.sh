@@ -2,6 +2,12 @@
 
 set -eou pipefail
 
+# generating kubeconfig folders
+echo "🛠️ Generate kubeconfig folders..."
+mkdir -p ~/.kube/atomiconfigs
+mkdir -p ~/.kube/k3dconfigs
+mkdir -p ~/.kube/configs
+echo "✅ Folders are generated!"
 
 # generate infisical folders
 echo "🛠️ Generate infisical config..."
@@ -19,13 +25,15 @@ echo "✅ Infisical config is generated!"
 
 echo "🛠️ Listing AtomiCloud access credentials..."
 cd "$HOME/.infisical" || exit
-slugs=("pichu" "pikachu" "raichu" "suicune" "entei")
+
+# shellcheck disable=SC2116,SC2086,SC2153
+slugs=$(echo $SLUGS)
 
 # Initialize an empty array
 combined_array="[]"
 
-# Iterate over each slug
-for slug in "${slugs[@]}"; do
+# shellcheck disable=SC2068
+for slug in ${slugs[@]}; do
     # Execute the command with the current slug and get the JSON array
     json_array=$(infisical export --env "$slug" -f json)
 
@@ -68,12 +76,26 @@ EOF
   echo "$kc" > "$HOME/.kube/atomiconfigs/${name}.yaml"
 done
 
-# generating kubeconfig folders
-echo "🛠️ Generate kubeconfig folders..."
-mkdir -p ~/.kube/atomiconfigs
-mkdir -p ~/.kube/k3dconfigs
-mkdir -p ~/.kube/configs
-echo "✅ Folders are generated!"
+# retrieve vcluster kubeconfigs
+echo "🛠️ Retrieving vCluster kubeconfigs..."
+
+# shellcheck disable=SC2068
+for pcluster in ${PCLUSTERS[@]}; do
+  echo "👾 Retrieving kubeconfig for vCluster in physical cluster '${pcluster}'..."
+  kubectx | cat | grep "${pcluster}" | while IFS= read -r pc; do
+
+    # shellcheck disable=SC2068
+    for vcluster in ${VCLUSTERS[@]}; do
+      secret_name="vc-${pcluster}-${vcluster}-iodine"
+      encoded_yaml=$(kubectl --context "${pc}" --namespace "${vcluster}" get secret "${secret_name}" -o jsonpath="{.data.config}")
+      yaml_kubeconfig=$(echo "${encoded_yaml}" | base64 -d)
+      cluster_name=$(echo "${yaml_kubeconfig}" | yq -r '.current-context')
+      echo "👾 Retrieving kubeconfig for vCluster in virtual cluster '${cluster_name}'..."
+      echo "$yaml_kubeconfig" > "$HOME/.kube/atomiconfigs/${cluster_name}.yaml"
+    done
+  done
+done
+
 
 # list kubeconfig paths
 echo "📋 Listing kubeconfig paths..."
