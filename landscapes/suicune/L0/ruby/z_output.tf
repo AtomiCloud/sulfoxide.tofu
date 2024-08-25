@@ -11,3 +11,6 @@ output "cluster_config" {
   sensitive = true
 }
 
+output "cluster_endpoint" {
+  value = module.cluster.endpoint
+}

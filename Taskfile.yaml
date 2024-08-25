@@ -6,6 +6,7 @@ vars:
 includes:
   setup: tasks/Taskfile.setup.yaml
 
+  # suicune-opal-ruby
   suicune:l0:opal:
     taskfile: tasks/Taskfile.landscape.yaml
     vars:
@@ -14,11 +15,6 @@ includes:
     taskfile: tasks/Taskfile.landscape.yaml
     vars:
       DIR: landscapes/suicune/L0/ruby
-
-  suicune:l1:opal-ruby:
-    taskfile: tasks/Taskfile.landscape.yaml
-    vars:
-      DIR: landscapes/suicune/L1/opal-ruby/generic
   suicune:l1:opal:
     taskfile: tasks/Taskfile.landscape.yaml
     vars:
@@ -27,19 +23,55 @@ includes:
     taskfile: tasks/Taskfile.landscape.yaml
     vars:
       DIR: landscapes/suicune/L1/opal-ruby/ruby
+  suicune:l1:opal-ruby:
+    taskfile: tasks/Taskfile.landscape.yaml
+    vars:
+      DIR: landscapes/suicune/L1/opal-ruby/generic
 
+  # entei-amber-topaz
   entei:l0:topaz:
     taskfile: tasks/Taskfile.landscape.yaml
     vars:
       DIR: landscapes/entei/L0/topaz
-  entei:l1:topaz-amber:
+  entei:l0:amber:
     taskfile: tasks/Taskfile.landscape.yaml
     vars:
-      DIR: landscapes/entei/L1/topaz-amber/generic
+      DIR: landscapes/entei/L0/amber
   entei:l1:topaz:
     taskfile: tasks/Taskfile.landscape.yaml
     vars:
       DIR: landscapes/entei/L1/topaz-amber/topaz
+  entei:l1:amber:
+    taskfile: tasks/Taskfile.landscape.yaml
+    vars:
+      DIR: landscapes/entei/L1/topaz-amber/amber
+  entei:l1:topaz-amber:
+    taskfile: tasks/Taskfile.landscape.yaml
+    vars:
+      DIR: landscapes/entei/L1/topaz-amber/generic
+
+  # entei-opal-ruby
+  entei:l0:opal:
+    taskfile: tasks/Taskfile.landscape.yaml
+    vars:
+      DIR: landscapes/entei/L0/opal
+  entei:l0:ruby:
+    taskfile: tasks/Taskfile.landscape.yaml
+    vars:
+      DIR: landscapes/entei/L0/ruby
+  entei:l1:opal:
+    taskfile: tasks/Taskfile.landscape.yaml
+    vars:
+      DIR: landscapes/entei/L1/opal-ruby/opal
+  entei:l1:ruby:
+    taskfile: tasks/Taskfile.landscape.yaml
+    vars:
+      DIR: landscapes/entei/L1/opal-ruby/ruby
+  entei:l1:opal-ruby:
+    taskfile: tasks/Taskfile.landscape.yaml
+    vars:
+      DIR: landscapes/entei/L1/opal-ruby/generic
+
 
   arceus:
     taskfile: tasks/Taskfile.landscape.yaml

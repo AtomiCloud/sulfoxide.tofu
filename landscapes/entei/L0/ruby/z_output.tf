@@ -1,13 +1,13 @@
 output "cluster_name" {
-  value = module.static_config.name
+  value = module.cluster.name
 }
 
 output "cluster_server" {
-  value = module.static_config.server
+  value = module.cluster.server
 }
 
 output "cluster_config" {
-  value     = module.static_config.config
+  value     = module.cluster.config
   sensitive = true
 }
 

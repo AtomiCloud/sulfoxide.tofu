@@ -2,11 +2,8 @@
 # 01 Provider #
 ###############
 
-provider "aws" {
-  region     = local.regions.aws
-
-  access_key = data.infisical_secrets.sulfoxide_tofu.secrets["${upper(local.cluster)}_AWS_ACCESS_KEY"].value
-  secret_key = data.infisical_secrets.sulfoxide_tofu.secrets["${upper(local.cluster)}_AWS_SECRET_KEY"].value
+provider "digitalocean" {
+  token = data.infisical_secrets.sulfoxide_tofu.secrets["${upper(local.cluster)}_DIGITALOCEAN_TOKEN"].value
 }
 
 ##############
@@ -15,27 +12,18 @@ provider "aws" {
 
 module "cluster" {
 
-  source = "../../../../modules/L0/clusters/eks_cluster"
+  source = "../../../../modules/L0/clusters/digital_ocean_cluster"
 
 
   landscape = local.landscape
   cluster   = local.cluster
 
-  access_key = data.infisical_secrets.sulfoxide_tofu.secrets["${upper(local.cluster)}_AWS_ACCESS_KEY"].value
-  secret_key = data.infisical_secrets.sulfoxide_tofu.secrets["${upper(local.cluster)}_AWS_SECRET_KEY"].value
+  k8s_version   = local.k8s_version
+  region        = local.regions.digital_ocean
+  instance_type = local.instance_type
 
-  cidr                      = local.cidr
-  ips                       = 3
-  k8s_version               = local.k8s_version
-  karpenter_service_account = local.platforms.sulfoxide.services.cluster_scaler.slug
-  region                    = local.regions.aws
-  azs = ["ap-southeast-1a", "ap-southeast-1b", "ap-southeast-1c"]
-  additional_tags = {}
-
-  ebs_sa        = "ebs-controller"
-  efs_sa        = "efs-controller"
-  elb_sa        = "elb-controller"
-  irsa_platform = local.platforms.sulfoxide.slug
+  max_nodes = local.max
+  min_nodes = 1
 }
 
 #####################
