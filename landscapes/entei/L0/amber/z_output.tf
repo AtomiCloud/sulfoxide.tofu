@@ -26,3 +26,7 @@ output "karpenter_node_role_name" {
 output "irsa_role_arn" {
   value = module.cluster.irsa_role_arn
 }
+
+output "vpc_id" {
+  value = module.cluster.vpc_id
+}

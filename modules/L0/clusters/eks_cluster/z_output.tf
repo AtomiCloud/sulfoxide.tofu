@@ -29,3 +29,7 @@ output "karpenter_role_arn" {
 output "irsa_role_arn" {
   value = module.iam_eks_role.iam_role_arn
 }
+
+output "vpc_id" {
+  value = module.vpc.vpc_id
+}
