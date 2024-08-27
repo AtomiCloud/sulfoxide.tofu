@@ -14,3 +14,4 @@ output "cluster_config" {
 output "cluster_endpoint" {
   value = module.cluster.endpoint
 }
+
