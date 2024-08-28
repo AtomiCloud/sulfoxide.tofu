@@ -6,6 +6,7 @@ locals {
     digital_ocean = "sgp1"
     cloudflare    = "APAC"
     aws           = "ap-southeast-1"
+    vultr         = "sgp"
   }
 
   cloudflare = {

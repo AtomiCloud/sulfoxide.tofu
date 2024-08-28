@@ -72,6 +72,28 @@ includes:
     vars:
       DIR: landscapes/entei/L1/opal-ruby/generic
 
+  # entei-mica-talc
+  entei:l0:mica:
+    taskfile: tasks/Taskfile.landscape.yaml
+    vars:
+      DIR: landscapes/entei/L0/mica
+  entei:l0:talc:
+    taskfile: tasks/Taskfile.landscape.yaml
+    vars:
+      DIR: landscapes/entei/L0/talc
+  entei:l1:mica:
+    taskfile: tasks/Taskfile.landscape.yaml
+    vars:
+      DIR: landscapes/entei/L1/mica-talc/mica
+  entei:l1:talc:
+    taskfile: tasks/Taskfile.landscape.yaml
+    vars:
+      DIR: landscapes/entei/L1/mica-talc/talc
+  entei:l1:mica-talc:
+    taskfile: tasks/Taskfile.landscape.yaml
+    vars:
+      DIR: landscapes/entei/L1/mica-talc/generic
+
 
   arceus:
     taskfile: tasks/Taskfile.landscape.yaml
