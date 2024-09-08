@@ -3,7 +3,7 @@ data "digitalocean_kubernetes_versions" "version" {
 }
 
 resource "digitalocean_kubernetes_cluster" "cluster" {
-  name         = "${var.landscape}-${var.cluster}-cluster"
+  name         = "${local.name}-cluster"
   region       = var.region
   auto_upgrade = true
   version      = data.digitalocean_kubernetes_versions.version.latest_version
