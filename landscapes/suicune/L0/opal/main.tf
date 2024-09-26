@@ -31,22 +31,6 @@ locals {
   config_obj = jsondecode(module.cluster.config)
 }
 
-provider "kubernetes" {
-  host                   = module.cluster.server
-  cluster_ca_certificate = base64decode(local.config_obj.tlsClientConfig.caData)
-  token                  = local.config_obj.bearerToken
-}
-
-module "static_config" {
-  source = "../../../../modules/L0/cluster_secret"
-
-  namespace      = "kubernetes-access"
-  resources_name = "kubernetes-access"
-
-  name           = module.cluster.name
-  server         = module.cluster.server
-}
-
 module "kubeconfig" {
 
   source = "../../../../modules/L0/connector_secret/infisical"
@@ -55,9 +39,9 @@ module "kubeconfig" {
   project_name = "kubernetes-access"
   secret_name  = "${upper(local.cluster)}_KUBECONFIG"
 
-  name   = module.static_config.name
-  server = module.static_config.server
-  config = module.static_config.config
+  name   = module.cluster.name
+  server = module.cluster.server
+  config = module.cluster.config
 
 }
 
@@ -75,8 +59,8 @@ module "kubeconfig_helium" {
   secret_name  = "${upper(local.landscape)}_${upper(local.cluster)}_KUBECONFIG"
 
   name   = module.cluster.name
-  server = module.static_config.server
-  config = module.static_config.config
+  server = module.cluster.server
+  config = module.cluster.config
 
 }
 
