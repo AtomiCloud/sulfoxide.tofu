@@ -18,15 +18,15 @@ includes:
   suicune:l1:opal:
     taskfile: tasks/Taskfile.landscape.yaml
     vars:
-      DIR: landscapes/suicune/L1/opal-ruby/opal
+      DIR: landscapes/suicune/L1/opal
   suicune:l1:ruby:
     taskfile: tasks/Taskfile.landscape.yaml
     vars:
-      DIR: landscapes/suicune/L1/opal-ruby/ruby
-  suicune:l1:opal-ruby:
+      DIR: landscapes/suicune/L1/ruby
+  suicune:l1:generic:
     taskfile: tasks/Taskfile.landscape.yaml
     vars:
-      DIR: landscapes/suicune/L1/opal-ruby/generic
+      DIR: landscapes/suicune/L1/generic
 
   # entei-amber-topaz
   entei:l0:topaz:

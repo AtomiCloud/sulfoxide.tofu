@@ -1,5 +1,5 @@
 module "external_secrets" {
-  source = "../../../../../modules/L1/external_secrets/infisical"
+  source = "../../../../modules/L1/external_secrets/infisical"
 
   landscape = local.landscape
   platform  = local.platforms.sulfoxide.slug

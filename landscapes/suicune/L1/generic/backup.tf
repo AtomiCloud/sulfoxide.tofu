@@ -1,6 +1,6 @@
 module "velero_backup_r2" {
 
-  source = "../../../../../modules/L2/r2"
+  source = "../../../../modules/L2/r2"
 
   cf_account_id = local.cloudflare.account_id
   cf_region     = local.regions.cloudflare
@@ -21,7 +21,7 @@ resource "infisical_secret" "backup_engine_key" {
   env_slug  = local.landscape
   folder_path = "/"
 
-  name    = "${upper(join("_",split("-",local.cluster_set)))}_AWS_ACCESS_KEY"
+  name    = "AWS_ACCESS_KEY"
   value   = module.velero_backup_r2.key
 }
 
@@ -32,6 +32,6 @@ resource "infisical_secret" "backup_engine_secret" {
   env_slug  = local.landscape
   folder_path = "/"
 
-  name    = "${upper(join("_",split("-",local.cluster_set)))}_AWS_ACCESS_SECRET"
+  name    = "AWS_ACCESS_SECRET"
   value   = module.velero_backup_r2.secret
 }

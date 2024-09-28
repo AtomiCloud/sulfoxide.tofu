@@ -3,7 +3,7 @@ locals {
 }
 
 module "ingress" {
-  source = "../../../../../modules/L1/cloudflare_zerotrust_tunnel"
+  source = "../../../../modules/L1/cloudflare_zerotrust_tunnel"
 
   cloudflare_account_id              = local.cloudflare.account_id
   cloudflare_zone                    = local.cloudflare.zone
@@ -47,7 +47,7 @@ resource "infisical_secret" "ingress_argocd" {
   env_slug  = local.landscape
   folder_path = "/"
 
-  name    = "${upper(join("_",split("-",local.cluster_set)))}_INGRESS_TOKEN"
+  name    = "INGRESS_TOKEN"
   value   = module.ingress.tunnel_token
 
 }
@@ -63,6 +63,6 @@ resource "infisical_secret" "ingress" {
   env_slug  = local.landscape
   folder_path = "/"
 
-  name    = "${upper(join("_",split("-",local.cluster_set)))}_INGRESS_TOKEN"
+  name    = "INGRESS_TOKEN"
   value   = module.ingress.tunnel_token
 }
