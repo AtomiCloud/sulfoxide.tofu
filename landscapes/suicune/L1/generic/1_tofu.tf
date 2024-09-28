@@ -2,7 +2,7 @@ terraform {
 
   backend "pg" {
     conn_str = var.tofu_backend
-    schema_name = "${local.landscape}-l1-${local.cluster_set}"
+    schema_name = "${local.landscape}-l1"
   }
 
   required_providers {
