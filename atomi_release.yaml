@@ -20,23 +20,30 @@ specialScopes:
     release: false
 
 plugins:
-  - module: "@semantic-release/changelog"
+  - module: '@semantic-release/changelog'
+    version: 6.0.3
     config:
       changelogFile: Changelog.md
-  - module: "@semantic-release/exec"
+  - module: '@semantic-release/exec'
+    version: 6.0.3
     config:
-      prepareCmd: scripts/ci/helm.sh ${nextRelease.version}
-  - module: "@semantic-release/exec"
-    config:
-      prepareCmd: scripts/ci/readme.sh ${nextRelease.version}
-  - module: "@semantic-release/git"
+      prepareCmd: ./scripts/ci/publish.sh ${nextRelease.version}
+  - module: '@semantic-release/git'
+    version: 10.0.1
     config:
       message: "release: ${nextRelease.version} [skip ci]\n\n${nextRelease.notes}"
       assets:
+        - chart/**/*.*
         - Changelog.md
-        - CommitConventions.md
-        - README.MD
-  - module: "@semantic-release/github"
+        - docs/developer/CommitConventions.md
+  - module: 'semantic-release-major-tag'
+    version: 0.3.2
+    config:
+      customTags:
+        - 'v${major}'
+        - 'v${major}.${minor}'
+  - module: '@semantic-release/github'
+    version: 10.3.5
 
 types:
   - type: fix

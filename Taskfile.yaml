@@ -15,6 +15,15 @@ includes:
     taskfile: tasks/Taskfile.landscape.yaml
     vars:
       DIR: landscapes/suicune/L0/ruby
+  suicune:l0:mica:
+    taskfile: tasks/Taskfile.landscape.yaml
+    vars:
+      DIR: landscapes/suicune/L0/mica
+  suicune:l0:talc:
+    taskfile: tasks/Taskfile.landscape.yaml
+    vars:
+      DIR: landscapes/suicune/L0/talc
+
   suicune:l1:opal:
     taskfile: tasks/Taskfile.landscape.yaml
     vars:
@@ -23,6 +32,14 @@ includes:
     taskfile: tasks/Taskfile.landscape.yaml
     vars:
       DIR: landscapes/suicune/L1/ruby
+  suicune:l1:mica:
+    taskfile: tasks/Taskfile.landscape.yaml
+    vars:
+      DIR: landscapes/suicune/L1/mica
+  suicune:l1:talc:
+    taskfile: tasks/Taskfile.landscape.yaml
+    vars:
+      DIR: landscapes/suicune/L1/talc
   suicune:l1:generic:
     taskfile: tasks/Taskfile.landscape.yaml
     vars:
