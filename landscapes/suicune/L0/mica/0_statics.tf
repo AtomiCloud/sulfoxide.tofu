@@ -61,6 +61,11 @@ locals {
           slug        = "sos"
           description = "Secrets of other infisical secrets"
         }
+        metrics_engine = {
+          name        = "Metrics Engine"
+          slug        = "gallium"
+          description = "Victoria Metrics to store and process metrics as the metrics engine"
+        }
         terraform = {
           name        = "Terraform"
           slug        = "terraform"

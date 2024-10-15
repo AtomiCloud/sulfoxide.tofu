@@ -215,3 +215,17 @@ module "sulfoxide_iodine_infisical" {
 
   store_service_token = true
 }
+
+# Victoria Metrics
+module "sulfoxide_gallium_infisical" {
+  source = "../../modules/L0/secrets/infisical"
+
+  landscapes = merge(local.infisical_landscapes.a)
+  platform   = local.platforms.sulfoxide.slug
+  service    = local.platforms.sulfoxide.services.metrics_engine.slug
+
+  description = "Secrets for ${local.platforms.sulfoxide.services.metrics_engine.description}"
+  sos_project = local.sos_project
+
+  store_service_token = true
+}
