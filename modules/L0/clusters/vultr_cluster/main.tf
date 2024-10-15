@@ -6,7 +6,7 @@ resource "vultr_kubernetes" "k8" {
   ha_controlplanes = true
 
   node_pools {
-    node_quantity = 1
+    node_quantity = var.min_nodes
     plan          = var.instance_type
     label         = "default-nodepool"
     auto_scaler   = true
