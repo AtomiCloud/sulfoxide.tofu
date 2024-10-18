@@ -15,3 +15,9 @@ variable "tofu_backend" {
   type        = string
   sensitive   = true
 }
+
+variable "target_cluster" {
+  description = "Target cluster for Load Balancer"
+  type        = string
+  default     = "mica"
+}
