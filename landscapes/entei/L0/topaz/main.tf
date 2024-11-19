@@ -25,11 +25,11 @@ module "cluster" {
   secret_key = data.infisical_secrets.sulfoxide_tofu.secrets["${upper(local.cluster)}_AWS_SECRET_KEY"].value
 
   cidr                      = local.cidr
-  ips                       = 3
+  ips                       = 2
   k8s_version               = local.k8s_version
   karpenter_service_account = local.platforms.sulfoxide.services.cluster_scaler.slug
   region                    = local.regions.aws
-  azs = ["ap-southeast-1a", "ap-southeast-1b", "ap-southeast-1c"]
+  azs = ["ap-southeast-1b", "ap-southeast-1c"]
   additional_tags = {}
 
   ebs_sa        = "ebs-controller"

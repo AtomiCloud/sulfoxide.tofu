@@ -5,6 +5,6 @@ locals {
 
   instance_type = "s-4vcpu-8gb"
   k8s_version   = "1.30"
-  min_nodes     = 3
-  max_nodes     = 4
+  min_nodes     = 2
+  max_nodes     = 3
 }

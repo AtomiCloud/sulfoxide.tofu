@@ -19,5 +19,5 @@ variable "tofu_backend" {
 variable "target_cluster" {
   description = "Target cluster for Load Balancer"
   type        = string
-  default     = "mica"
+  default     = "topaz"
 }
