@@ -8,10 +8,13 @@ module "eks" {
 
   enable_cluster_creator_admin_permissions = true
 
+  cluster_enabled_log_types = var.log_types
+
   cluster_addons = {
     coredns = {
       configuration_values = jsonencode({
         computeType = "fargate"
+        nodeSelector = var.single_az ? { "topology.kubernetes.io/zone" = local.az } : {}
         resources = {
           limits = {
             cpu = "0.25"
@@ -25,7 +28,16 @@ module "eks" {
       })
     }
     kube-proxy = {}
-    vpc-cni = {}
+    vpc-cni = {
+      configuration_values = jsonencode({
+        env = {
+          ENABLE_PREFIX_DELEGATION = "true"
+          WARM_PREFIX_TARGET = "1"
+          WARM_IP_TARGET = "5"
+          MINIMUM_IP_TARGET = "2"
+        }
+      })
+    }
   }
 
   vpc_id                   = module.vpc.vpc_id

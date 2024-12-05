@@ -57,6 +57,12 @@ variable "k8s_version" {
   description = "Kubernetes version"
 }
 
+variable "log_types" {
+  type        = list(string)
+  description = "Log types to enable"
+  default     = []
+}
+
 # Network
 variable "cidr" {
   type        = string
@@ -66,6 +72,18 @@ variable "cidr" {
 variable "azs" {
   type = list(string)
   description = "Availability zones"
+}
+
+variable "single_az" {
+  type        = bool
+  description = "Use single AZ"
+  default     = false
+}
+
+variable "single_az_index" {
+  type        = number
+  description = "Index of single AZ"
+  default     = 0
 }
 
 # AWS

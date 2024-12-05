@@ -1,6 +1,7 @@
 locals {
   name = "${var.landscape}-${var.cluster}"
 
+  az = var.azs[var.single_az_index]
 
   basic_tags = merge({
 

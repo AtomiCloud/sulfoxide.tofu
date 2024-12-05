@@ -30,7 +30,12 @@ module "cluster" {
   karpenter_service_account = local.platforms.sulfoxide.services.cluster_scaler.slug
   region                    = local.regions.aws
   azs = ["ap-southeast-1b", "ap-southeast-1c"]
+
+  single_az = true
+  single_az_index = 1
+
   additional_tags = {}
+  log_types = []
 
   ebs_sa        = "ebs-controller"
   efs_sa        = "efs-controller"
