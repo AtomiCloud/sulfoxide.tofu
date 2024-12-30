@@ -22,5 +22,7 @@ module "secret_of_secrets" {
   sos_project = "${local.platforms.sulfoxide.slug}-${local.platforms.sulfoxide.services.sos.slug}"
 
   store_service_token = true
+
+  infisical_org_id = local.infisical_org_id
 }
 

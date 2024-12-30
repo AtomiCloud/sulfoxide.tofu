@@ -9,6 +9,8 @@ locals {
     vultr         = "sgp"
   }
 
+  infisical_org_id = "d45d5d15-cdde-4a47-ba22-fbd34657732e"
+
   cloudflare = {
     account_id        = "177aa484a66427793543c5e958f8d020"
     warp_policy_id    = "55971cbe-2ddf-4c30-b504-abbb901a0600"

@@ -16,4 +16,6 @@ module "kubernetes_access_infisical" {
   sos_project = local.sos_project
 
   store_service_token = false
+
+  infisical_org_id = local.infisical_org_id
 }

@@ -28,3 +28,8 @@ variable "description" {
   description = "Service description"
   type        = string
 }
+
+variable "infisical_org_id" {
+  description = "Infisical Org ID"
+  type        = string
+}

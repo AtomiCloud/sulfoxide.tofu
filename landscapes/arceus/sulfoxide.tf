@@ -18,6 +18,8 @@ module "sulfoxide_tofu_infisical" {
   sos_project = local.sos_project
 
   store_service_token = true
+
+  infisical_org_id = local.infisical_org_id
 }
 
 # ArgoCD
@@ -32,6 +34,8 @@ module "sulfoxide_helium_infisical" {
   sos_project = local.sos_project
 
   store_service_token = true
+
+  infisical_org_id = local.infisical_org_id
 }
 
 # Internal Ingress
@@ -46,6 +50,8 @@ module "sulfoxide_boron_infisical" {
   sos_project = local.sos_project
 
   store_service_token = true
+
+  infisical_org_id = local.infisical_org_id
 }
 
 # External Ingress
@@ -60,6 +66,8 @@ module "sulfoxide_oxygen_infisical" {
   sos_project = local.sos_project
 
   store_service_token = true
+
+  infisical_org_id = local.infisical_org_id
 }
 
 # Pod Autoscaler KEDA
@@ -74,6 +82,8 @@ module "sulfoxide_iron_infisical" {
   sos_project = local.sos_project
 
   store_service_token = true
+
+  infisical_org_id = local.infisical_org_id
 }
 
 # Policy Engine
@@ -88,6 +98,8 @@ module "sulfoxide_argon_infisical" {
   sos_project = local.sos_project
 
   store_service_token = true
+
+  infisical_org_id = local.infisical_org_id
 }
 
 # Policies
@@ -102,6 +114,8 @@ module "sulfoxide_sodium_infisical" {
   sos_project = local.sos_project
 
   store_service_token = true
+
+  infisical_org_id = local.infisical_org_id
 }
 
 # Cert Manager
@@ -116,6 +130,8 @@ module "sulfoxide_sulfur_infisical" {
   sos_project = local.sos_project
 
   store_service_token = true
+
+  infisical_org_id = local.infisical_org_id
 }
 
 # Cluster Issuer
@@ -130,6 +146,8 @@ module "sulfoxide_zinc_infisical" {
   sos_project = local.sos_project
 
   store_service_token = true
+
+  infisical_org_id = local.infisical_org_id
 }
 
 # OTEL Operator
@@ -144,6 +162,8 @@ module "sulfoxide_lithium_infisical" {
   sos_project = local.sos_project
 
   store_service_token = true
+
+  infisical_org_id = local.infisical_org_id
 }
 
 # OTEL Collector
@@ -158,6 +178,8 @@ module "sulfoxide_silicon_infisical" {
   sos_project = local.sos_project
 
   store_service_token = true
+
+  infisical_org_id = local.infisical_org_id
 }
 
 # Backup Engine
@@ -172,6 +194,8 @@ module "sulfoxide_fluorine_infisical" {
   sos_project = local.sos_project
 
   store_service_token = true
+
+  infisical_org_id = local.infisical_org_id
 }
 
 # Secret Engine
@@ -186,6 +210,8 @@ module "sulfoxide_cobalt_infisical" {
   sos_project = local.sos_project
 
   store_service_token = true
+
+  infisical_org_id = local.infisical_org_id
 }
 
 # External DNS
@@ -200,6 +226,8 @@ module "sulfoxide_tin_infisical" {
   sos_project = local.sos_project
 
   store_service_token = true
+
+  infisical_org_id = local.infisical_org_id
 }
 
 # Virtual Cluster
@@ -214,6 +242,8 @@ module "sulfoxide_iodine_infisical" {
   sos_project = local.sos_project
 
   store_service_token = true
+
+  infisical_org_id = local.infisical_org_id
 }
 
 # Victoria Metrics
@@ -228,4 +258,6 @@ module "sulfoxide_gallium_infisical" {
   sos_project = local.sos_project
 
   store_service_token = true
+
+  infisical_org_id = local.infisical_org_id
 }
