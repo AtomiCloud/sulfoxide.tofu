@@ -14,17 +14,10 @@ locals {
   combinations_map = { for combination in local.combinations : "${combination.physical}-${combination.virtual}" => combination }
 }
 
-data "infisical_secrets" "this" {
-  for_each     = local.combinations_map
-  env_slug     = each.value.virtual
-  workspace_id = data.infisical_projects.this.id
-  folder_path  = "/"
-}
-
 resource "infisical_secret" "this" {
   for_each     = local.combinations_map
   name         = "${upper(each.value.virtual)}_${var.secret}"
-  value        = data.infisical_secrets.this[each.key].secrets[var.secret].value
+  value        = "$${${each.value.virtual}.${var.secret}}"
   env_slug     = each.value.physical
   workspace_id = data.infisical_projects.this.id
   folder_path  = "/"
