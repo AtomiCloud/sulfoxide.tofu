@@ -1,11 +1,11 @@
-version: "3"
+version: '3'
 
 tasks:
   default:
-    desc: "Setup everything"
+    desc: 'Setup everything'
     cmds:
       - task: secret
   secret:
-    desc: "Setup secret"
+    desc: 'Setup secret'
     cmds:
       - ./scripts/local/secrets.sh

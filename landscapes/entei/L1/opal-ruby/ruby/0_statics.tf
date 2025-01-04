@@ -68,10 +68,15 @@ locals {
           slug        = "gallium"
           description = "Victoria Metrics to store and process metrics as the metrics engine"
         }
-        terraform = {
-          name        = "Terraform"
-          slug        = "terraform"
-          description = "Terraform"
+        github = {
+          name        = "GitHub"
+          slug        = "github"
+          description = "GitHub for AtomiCloud"
+        }
+        technetium = {
+          name        = "Technetium"
+          slug        = "technetium"
+          description = "IaC for L2 Components for AtomiCloud"
         }
         tofu = {
           name        = "Tofu"

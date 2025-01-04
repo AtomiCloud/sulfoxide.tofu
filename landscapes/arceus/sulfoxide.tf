@@ -22,6 +22,24 @@ module "sulfoxide_tofu_infisical" {
   infisical_org_id = local.infisical_org_id
 }
 
+# tofu-l2
+module "sulfoxide_technetium_infisical" {
+  source = "../../modules/L0/secrets/infisical"
+
+  landscapes = {
+    (local.landscapes.arceus.slug)  = local.landscapes.arceus.name
+  }
+  platform = local.platforms.sulfoxide.slug
+  service  = local.platforms.sulfoxide.services.technetium.slug
+
+  description = "Sulfoxide Technetium holds secrets for tofu that controls the L2 AtomiCloud infrastructure"
+  sos_project = local.sos_project
+
+  store_service_token = true
+
+  infisical_org_id = local.infisical_org_id
+}
+
 # ArgoCD
 module "sulfoxide_helium_infisical" {
   source = "../../modules/L0/secrets/infisical"
@@ -255,6 +273,24 @@ module "sulfoxide_gallium_infisical" {
   service    = local.platforms.sulfoxide.services.metrics_engine.slug
 
   description = "Secrets for ${local.platforms.sulfoxide.services.metrics_engine.description}"
+  sos_project = local.sos_project
+
+  store_service_token = true
+
+  infisical_org_id = local.infisical_org_id
+}
+
+# GitHub
+module "sulfoxide_github_infisical" {
+  source = "../../modules/L0/secrets/infisical"
+
+  landscapes = {
+    (local.landscapes.arceus.slug) = local.landscapes.arceus.name
+  }
+  platform = local.platforms.sulfoxide.slug
+  service  = local.platforms.sulfoxide.services.github.slug
+
+  description = "Sulfoxide Github holds secrets for Github's CI"
   sos_project = local.sos_project
 
   store_service_token = true
